@@ -18,3 +18,38 @@
 @media(max-width:600px){.tok-poll{padding:22px 18px;margin-bottom:26px}.poll-heading{align-items:flex-start}.poll-heading .eyebrow{font-size:8px;letter-spacing:1.2px}.poll-stamp{width:58px;height:58px;font-size:9px}.poll-intro{font-size:12px}.poll-options{grid-template-columns:1fr;gap:10px}.poll-vote{min-height:54px}.poll-result-label{font-size:12px}.poll-message{font-size:12px}}
 /* Keep the headline and illustration in separate rows on narrow phones. */
 @media(max-width:480px){.hero{display:flex;flex-direction:column;align-items:stretch;gap:12px;padding-bottom:24px;min-height:0}.hero-copy{width:100%}.answer{font-size:clamp(96px,28vw,130px)}.verdict,.subtext{max-width:none}.mascot-scene{position:relative;inset:auto;align-self:center;width:230px;height:200px;transform:none;margin:0 0 24px}.mascot-disc{margin-top:0;width:180px;height:180px}.chicken{width:200px;height:200px}.time-sticker{right:0;bottom:-8px}.spark-one{right:4px;top:8px}.time-unit{min-width:0}.time-unit strong{font-size:clamp(43px,13vw,57px)}.section-top{gap:10px}.section-top h2{line-height:1.5}.bottom-row{flex-wrap:wrap}.poll-heading h2{font-size:25px}.topline{line-height:1.6}}
+
+/* On phones the countdown comes before the illustration, within the first screen. */
+@media(max-width:760px){
+  main.wrap{display:flex;flex-direction:column}
+  .hero{display:contents}
+  .hero-copy{order:0;padding:20px 0 16px;width:100%}
+  .hero-copy .eyebrow{display:none}
+  .hero-copy h1{max-width:none;font-size:24px}
+  .hero-copy .answer{font-size:88px;line-height:.9;margin:10px 0 12px}
+  .hero-copy .verdict{font-size:20px;margin-bottom:4px;max-width:none}
+  .hero-copy .subtext{max-width:none;font-size:12px}
+  .countdown-section{order:1;padding:0}
+  .section-top{margin-bottom:10px}
+  .time-unit{min-height:100px}
+  .time-unit strong{font-size:clamp(43px,13vw,68px)}
+  .progress-track{margin-top:15px}
+  .bottom-row{order:2;padding-top:20px}
+  .reply{order:3}
+  .mascot-scene{order:4;position:relative;inset:auto;align-self:center;width:260px;max-width:100%;height:230px;transform:none;margin:12px 0 44px}
+  .mascot-disc{width:190px;height:190px;margin-top:0}
+  .chicken{width:210px;height:210px}
+  .time-sticker{right:3px;bottom:8px}
+  .scribble,.arrow,.spark-two{display:none}
+  .spark-one{top:0;right:8px}
+  .tok-poll{order:5}
+  noscript{order:6}
+  .header{padding:12px 0}
+  .topline{padding:6px 12px}
+}
+@media(max-width:760px) and (max-height:600px){
+  .hero-copy{padding:14px 0 12px}
+  .hero-copy .answer{font-size:66px;margin:8px 0}
+  .hero-copy h1{font-size:22px}
+  .time-unit{min-height:88px}
+}

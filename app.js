@@ -4,7 +4,7 @@ const excuses = [
   'Nee. Ook niet als je heel hard op deze knop drukt.',
   'Je hebt net gekeken. De kip heeft ook een planning.',
   'Een Teams-meeting duurt langer. Hou vol.',
-  'Arthur voelt de druk. Geef die man even.',
+  'De kip voelt de druk. Geef haar even.',
   'Nee. Loop anders heel langzaam naar de kantine.',
   'Computer zegt nee. Maag zegt tok.',
   'We hebben de klok gevraagd sneller te gaan. Die wil eerst overleg.',
@@ -39,8 +39,8 @@ function render() {
   document.body.classList.toggle('party', state.party);
   $('answer').innerHTML = `${state.party ? 'JAAA' : state.friday ? 'BIJNA' : 'NEE'}<span>.</span>`;
   $('verdict').textContent = state.party ? 'Tijd voor tok!' : 'Nog even wachten.';
-  $('subtext').textContent = state.party ? 'Laptop dicht. Saus open. Eet smakelijk, collega.' : state.friday ? 'Arthur is nu aan het bestellen.' : subtitles[Math.floor(Math.random() * subtitles.length)];
-  $('arthur').textContent = state.party ? 'Het is 16:30 geweest. Schuif maar aan!' : state.friday ? 'Nog even wachten. Arthur is nu aan het bestellen.' : 'Arthur regelt het. Jij hoeft alleen te wachten.';
+  $('subtext').textContent = state.party ? 'Laptop dicht. Saus open. Eet smakelijk, collega.' : state.friday ? 'Het is vrijdag. De trek is officieel.' : subtitles[Math.floor(Math.random() * subtitles.length)];
+  $('arthur').textContent = state.party ? 'Het is 16:30 geweest. Schuif maar aan!' : state.friday ? 'Arthur is aan het bestellen.' : 'Vraag Arthur om de kip te bestellen.';
   $('countdown-title').textContent = state.party ? 'HET WACHTEN IS VOORBIJ' : '◷  NOG ZOVEEL GEDULD NODIG';
   $('target-label').textContent = state.party ? 'NU · TOKTIJD' : 'VRIJDAG · 16:30';
   $('progress-caption').textContent = state.party ? 'Deadline gehaald. Eindelijk eentje die smaakt.' : 'Elke seconde is er eentje dichter bij tok.';
@@ -71,7 +71,7 @@ let lastEscape = 0;
 const refusals = [
   ['Bezwaar afgewezen', 'Je tegenstem is afgewezen door de ondernemingskip. 100% voor. Volgende vraag.'],
   ['Nee is even op', 'Fout 404: geen trek niet gevonden. Je stem is doorgestuurd naar de sausafdeling.'],
-  ['Oké dan. Bestellen!', 'De knop heeft zelf trek gekregen. Zelfs Nee is nu voor. Arthur, je weet genoeg.'],
+  ['Oké dan. Bestellen!', 'De knop heeft zelf trek gekregen. Zelfs Nee is nu voor. Bestellen dus!'],
 ];
 function moveNoButton() {
   if (reducedMotion.matches) return;
@@ -99,7 +99,7 @@ noButton.addEventListener('click', event => {
 });
 document.querySelector('[data-vote="yes"]').addEventListener('click', () => {
   $('poll-results').hidden = false;
-  $('poll-message').textContent = 'Unaniem besloten: 100% voor, 0% tegen. Arthur, bestellen maar!';
+  $('poll-message').textContent = 'Unaniem besloten: 100% voor, 0% tegen. Vraag Arthur om te bestellen!';
   celebrate();
 });
 // Changing orientation or enabling reduced motion must never leave the button outside its lane.
@@ -107,7 +107,7 @@ function resetNoPosition() { noButton.style.left = '0px'; noButton.style.top = '
 window.addEventListener('resize', resetNoPosition);
 reducedMotion.addEventListener('change', resetNoPosition);
 
-const chickenAdvice = ['Tok. Dat is kip voor: Arthur, bestellen.', 'Ik ben geen consultant, maar ik adviseer kip.', 'Mijn agenda? Vrijdag 16:30. Verder niets.', 'Niet aan mijn nuggets komen.', 'Je praat tegen een kip op een website. Gaat het verder goed?'];
+const chickenAdvice = ['Tok. Dat is kip voor: doe maar extra saus.', 'Ik ben geen consultant, maar ik adviseer kip.', 'Mijn agenda? Vrijdag 16:30. Verder niets.', 'Niet aan mijn nuggets komen.', 'Je praat tegen een kip op een website. Gaat het verder goed?'];
 let chickenTaps = 0;
 $('ask-chicken').addEventListener('click', () => {
   $('chicken-reply').textContent = chickenAdvice[chickenTaps++ % chickenAdvice.length];
