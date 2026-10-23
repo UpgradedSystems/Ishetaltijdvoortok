@@ -10,6 +10,8 @@ De officiële onofficiële aftelklok voor vrijdag 16:30. Een lichte, statische s
 - “En nu dan?” geeft steeds een andere ongeduldige collega een antwoord. De Arthur-melding is een grap op basis van de weekdag, geen echte bestelstatus.
 - Onderaan staat de ludieke poll “Moet Arthur kip bestellen?”. Beide knoppen tonen 100% voor en 0% tegen. Er worden geen stemmen opgeslagen of verstuurd; na vernieuwen is de poll weer leeg.
 - Op telefoons staan de stemknoppen onder elkaar, met ruime aanraakvlakken. De kop en de kip hebben ieder hun eigen ruimte.
+- De nee-knop ontsnapt maximaal drie keer aan de muis, binnen zijn eigen vak. Tikken of toetsenbordbediening weigert het bezwaar met een smoes; na drie pogingen wordt de knop “Oké dan. Bestellen!”. De uitslag blijft altijd 100% voor. Bij verminderde beweging blijft de knop staan.
+- Tik op de kip voor ongevraagd advies. Vaak op “En nu dan?” drukken levert extra kantoorhumor op.
 
 ## Ontwikkelen
 

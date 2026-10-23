@@ -52,18 +52,63 @@ function render() {
 $('check').addEventListener('click', () => {
   render();
   if (getTokState().party) { $('reply').textContent = 'JAAA. Deze knop is nu officieel een tokknop.'; celebrate(); }
-  else { $('reply').textContent = excuses[clicks++ % excuses.length]; }
+  else {
+    $('reply').textContent = excuses[clicks++ % excuses.length];
+    if (clicks >= 3) $('check').innerHTML = 'Nog stééds niet? <span aria-hidden="true">↗</span>';
+    if (clicks >= 6) $('reply').textContent += ` Al ${clicks} keer gekeken. Je functioneringsgesprek wordt interessant.`;
+  }
 });
 render();
 setInterval(render, 1000);
 document.addEventListener('visibilitychange', () => { if (!document.hidden) render(); });
 
-document.querySelectorAll('[data-vote]').forEach(button => {
-  button.addEventListener('click', () => {
-    $('poll-results').hidden = false;
-    $('poll-message').textContent = button.dataset.vote === 'no'
-      ? 'Je tegenstem is zorgvuldig omgezet in trek. Uitslag: 100% voor, 0% tegen. Arthur, bestellen!'
-      : 'Unaniem besloten: 100% voor, 0% tegen. Arthur, bestellen maar!';
-    celebrate();
-  });
+const noButton = document.querySelector('[data-vote="no"]');
+const noArea = document.querySelector('.poll-no-area');
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+let escapes = 0;
+let objections = 0;
+let lastEscape = 0;
+const refusals = [
+  ['Bezwaar afgewezen', 'Je tegenstem is afgewezen door de ondernemingskip. 100% voor. Volgende vraag.'],
+  ['Nee is even op', 'Fout 404: geen trek niet gevonden. Je stem is doorgestuurd naar de sausafdeling.'],
+  ['Oké dan. Bestellen!', 'De knop heeft zelf trek gekregen. Zelfs Nee is nu voor. Arthur, je weet genoeg.'],
+];
+function moveNoButton() {
+  if (reducedMotion.matches) return;
+  const width = noArea.clientWidth - noButton.offsetWidth;
+  const height = noArea.clientHeight - noButton.offsetHeight;
+  escapes++;
+  noButton.style.left = `${escapes % 2 ? Math.max(0, width) : 0}px`;
+  noButton.style.top = `${escapes % 2 ? Math.max(0, height) : 0}px`;
+}
+noButton.addEventListener('pointerenter', event => {
+  // Mouse users get three escapes. Touch and keyboard users get the same jokes on activation.
+  if (event.pointerType !== 'mouse' || escapes >= 3 || objections > 0 || reducedMotion.matches || Date.now() - lastEscape < 500) return;
+  lastEscape = Date.now();
+  moveNoButton();
+  $('poll-message').textContent = ['Ho ho. Die knop heeft andere plannen.', 'Nee is even naar de kantine.', 'Vooruit, probeer maar. De kip heeft toch vetorecht.'][escapes - 1];
+});
+noButton.addEventListener('click', event => {
+  objections++;
+  $('poll-results').hidden = false;
+  const [label, message] = refusals[Math.min(objections - 1, refusals.length - 1)];
+  $('no-label').textContent = label;
+  $('poll-message').textContent = objections > 3 ? 'Kijk, daar zijn we het dan toch over eens. 100% bestellen. Democratie smaakt naar kip.' : message;
+  if (event.detail > 0) moveNoButton();
+  celebrate();
+});
+document.querySelector('[data-vote="yes"]').addEventListener('click', () => {
+  $('poll-results').hidden = false;
+  $('poll-message').textContent = 'Unaniem besloten: 100% voor, 0% tegen. Arthur, bestellen maar!';
+  celebrate();
+});
+// Changing orientation or enabling reduced motion must never leave the button outside its lane.
+function resetNoPosition() { noButton.style.left = '0px'; noButton.style.top = '0px'; }
+window.addEventListener('resize', resetNoPosition);
+reducedMotion.addEventListener('change', resetNoPosition);
+
+const chickenAdvice = ['Tok. Dat is kip voor: Arthur, bestellen.', 'Ik ben geen consultant, maar ik adviseer kip.', 'Mijn agenda? Vrijdag 16:30. Verder niets.', 'Niet aan mijn nuggets komen.', 'Je praat tegen een kip op een website. Gaat het verder goed?'];
+let chickenTaps = 0;
+$('ask-chicken').addEventListener('click', () => {
+  $('chicken-reply').textContent = chickenAdvice[chickenTaps++ % chickenAdvice.length];
 });

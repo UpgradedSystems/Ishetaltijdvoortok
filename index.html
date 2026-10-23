@@ -28,12 +28,13 @@
         <p class="verdict" id="verdict">Nog even wachten.</p>
         <p class="subtext" id="subtext">Je hebt geen honger. Je hebt gewoon zin in vrijdag.</p>
       </div>
-      <div class="mascot-scene" aria-hidden="true">
-        <div class="scribble">rustig aan,<br>hongerige collega.</div>
-        <svg class="arrow" viewBox="0 0 90 70" fill="none"><path d="M9 5C65 0 80 32 56 58m-1-18 1 19 21-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        <div class="mascot-disc"><img src="/chicken.svg" class="chicken" width="320" height="320" alt=""></div>
-        <div class="time-sticker"><span>VRIJDAG</span><strong>16:30</strong><span>HEILIG MOMENT</span></div>
-        <span class="spark spark-one">✳</span><span class="spark spark-two">✳</span>
+      <div class="mascot-scene">
+        <div class="scribble" aria-hidden="true">rustig aan,<br>hongerige collega.</div>
+        <svg class="arrow" aria-hidden="true" viewBox="0 0 90 70" fill="none"><path d="M9 5C65 0 80 32 56 58m-1-18 1 19 21-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <button class="mascot-disc" id="ask-chicken" type="button" aria-label="Vraag de kip om advies"><img src="/chicken.svg" class="chicken" width="320" height="320" alt=""></button>
+        <div class="time-sticker" aria-hidden="true"><span>VRIJDAG</span><strong>16:30</strong><span>HEILIG MOMENT</span></div>
+        <span class="spark spark-one" aria-hidden="true">✳</span><span class="spark spark-two" aria-hidden="true">✳</span>
+        <p id="chicken-reply" class="chicken-reply" role="status" aria-live="polite">Tik op de kip. Die heeft er ook een mening over.</p>
       </div>
     </section>
     <section class="countdown-section" aria-labelledby="countdown-title">
@@ -63,7 +64,7 @@
       <p class="poll-intro">Een volledig onafhankelijke peiling. Aldus de kip.</p>
       <div class="poll-options" role="group" aria-label="Stem op de kipbestelling">
         <button class="poll-vote poll-yes" type="button" data-vote="yes">Ja, bestellen! <span aria-hidden="true">↗</span></button>
-        <button class="poll-vote poll-no" type="button" data-vote="no">Nee, liever niet <span aria-hidden="true">↗</span></button>
+        <div class="poll-no-area"><button class="poll-vote poll-no" type="button" data-vote="no"><span id="no-label">Nee, liever niet</span><span aria-hidden="true">↗</span></button></div>
       </div>
       <div id="poll-results" class="poll-results" hidden>
         <div class="poll-result-label"><span>Ja, Arthur moet bestellen</span><strong>100%</strong></div>
