@@ -57,3 +57,13 @@ $('check').addEventListener('click', () => {
 render();
 setInterval(render, 1000);
 document.addEventListener('visibilitychange', () => { if (!document.hidden) render(); });
+
+document.querySelectorAll('[data-vote]').forEach(button => {
+  button.addEventListener('click', () => {
+    $('poll-results').hidden = false;
+    $('poll-message').textContent = button.dataset.vote === 'no'
+      ? 'Je tegenstem is zorgvuldig omgezet in trek. Uitslag: 100% voor, 0% tegen. Arthur, bestellen!'
+      : 'Unaniem besloten: 100% voor, 0% tegen. Arthur, bestellen maar!';
+    celebrate();
+  });
+});
