@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fa602c">
+  <meta name="description" content="De belangrijkste vraag op kantoor: is het al tijd voor tok? Tel af naar vrijdag 16:30. Arthur regelt de rest.">
+  <meta property="og:title" content="Is het al tijd voor tok?">
+  <meta property="og:description" content="Vrijdag. 16:30. Tok. De enige deadline die we wél serieus nemen.">
+  <meta property="og:type" content="website">
+  <title>Is het al tijd voor tok?</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <div class="topline">DE OFFICIËLE ONOFFICIËLE TOKKLOK <span>•</span> ELKE VRIJDAG OM 16:30</div>
+  <header class="header wrap">
+    <a class="logo" href="/" aria-label="Tokklok, naar de homepage"><img src="/favicon.svg" width="37" height="37" alt=""><span>tok<span class="logo-light">klok.</span></span></a>
+    <div class="weekly"><span class="status-dot"></span> Vrijdag is heilig.</div>
+  </header>
+  <main class="wrap">
+    <section class="hero" aria-labelledby="question">
+      <div class="hero-copy">
+        <p class="eyebrow">DE ENIGE DEADLINE DIE ERTOE DOET</p>
+        <h1 id="question">Is het al tijd voor tok?</h1>
+        <p class="answer" id="answer">NEE<span>.</span></p>
+        <p class="verdict" id="verdict">Nog even wachten.</p>
+        <p class="subtext" id="subtext">Je hebt geen honger. Je hebt gewoon zin in vrijdag.</p>
+      </div>
+      <div class="mascot-scene" aria-hidden="true">
+        <div class="scribble">rustig aan,<br>hongerige collega.</div>
+        <svg class="arrow" viewBox="0 0 90 70" fill="none"><path d="M9 5C65 0 80 32 56 58m-1-18 1 19 21-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <div class="mascot-disc"><img src="/chicken.svg" class="chicken" width="320" height="320" alt=""></div>
+        <div class="time-sticker"><span>VRIJDAG</span><strong>16:30</strong><span>HEILIG MOMENT</span></div>
+        <span class="spark spark-one">✳</span><span class="spark spark-two">✳</span>
+      </div>
+    </section>
+    <section class="countdown-section" aria-labelledby="countdown-title">
+      <div class="section-top"><h2 id="countdown-title"><span class="little-clock">◷</span> NOG ZOVEEL GEDULD NODIG</h2><span id="target-label">VRIJDAG · 16:30</span></div>
+      <div class="countdown" role="timer" aria-label="Aftellen naar vrijdag 16:30">
+        <div class="time-unit"><strong id="days">--</strong><span>DAGEN</span></div>
+        <span class="separator" aria-hidden="true">:</span>
+        <div class="time-unit"><strong id="hours">--</strong><span>UREN</span></div>
+        <span class="separator" aria-hidden="true">:</span>
+        <div class="time-unit"><strong id="minutes">--</strong><span>MINUTEN</span></div>
+        <span class="separator" aria-hidden="true">:</span>
+        <div class="time-unit seconds"><strong id="seconds">--</strong><span>SECONDEN</span></div>
+      </div>
+      <div class="progress-track" role="progressbar" aria-label="Voortgang naar tok" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="progress"></div></div>
+      <div class="progress-caption"><span id="progress-caption">Elke seconde is er eentje dichter bij tok.</span><span>100% het wachten waard</span></div>
+    </section>
+    <section class="bottom-row">
+      <div class="arthur-note"><span class="note-icon" aria-hidden="true">✱</span><div><span class="eyebrow">DE AFDELING TOKZAKEN</span><p id="arthur">Arthur regelt het. Jij hoeft alleen te wachten.</p></div></div>
+      <div class="impatient"><button id="check" type="button">En nu dan? <span aria-hidden="true">↗</span></button><span>Voor de ongeduldige collega.</span></div>
+    </section>
+    <p id="reply" class="reply" role="status" aria-live="polite"></p>
+    <noscript><p class="no-script">Zet JavaScript aan voor de live aftelklok. Toktijd is elke vrijdag om 16:30, Nederlandse tijd. Arthur regelt het.</p></noscript>
+  </main>
+  <div class="ticker" aria-hidden="true"><div>TOK IS EEN WERKWOORD <span>✳</span> VRIJDAG SMAAKT BETER <span>✳</span> ARTHUR REGELT HET <span>✳</span> EERST TOK. DAN WEEKEND. <span>✳</span> TOK IS EEN WERKWOORD <span>✳</span> VRIJDAG SMAAKT BETER <span>✳</span> ARTHUR REGELT HET <span>✳</span></div></div>
+  <footer class="wrap"><span>Gemaakt met trek. En iets te veel vrije tijd.</span><span>Geen meeting. Wel een eetafspraak. <span aria-hidden="true">↗</span></span></footer>
+  <div id="confetti" aria-hidden="true"></div>
+</body>
+</html>
